@@ -1,4 +1,10 @@
-# Welcome to Remix!
+# Custom Remix Starter
+
+This starter is a custom remix starter that includes:
+
+- [Prisma](https://prisma.io)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Shadcn-ui](https://ui.shadcn.com/)
 
 - [Remix Docs](https://remix.run/docs)
 
@@ -14,25 +20,12 @@ This starts your app in development mode, rebuilding assets on file changes.
 
 ## Deployment
 
-First, build your app for production:
+Using render:
+
+Set up a postgres database and set the `DATABASE_URL` environment variable.
+
+for the app build command, use:
 
 ```sh
-npm run build
+npm ci --production=false && npm run build && npx prisma migrate deploy && npm prune --production
 ```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
